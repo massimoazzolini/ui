@@ -3,7 +3,7 @@ title: "WFP UI Guidelines"
 email: "me@matthewmorek.com"
 description: ""
 url: "https://cdn.wfp.org" # WFP CDN
-version: "v0.14.0"
+version: "v0.14.1"
 quiet: true
 
 exclude: ["*.sublime-*", "*.sh", "*.yml", "*.DS_*"]
@@ -15,7 +15,7 @@ highlighter: rouge
 kramdown:
   input: GFM
 
-category-list: ["Basics", "Components", "Patterns", "Resources", "Info"]
+category-list: ["Getting Started", "Basics", "Components", "Patterns", "Resources", "Info"]
 
 # Defaults
 defaults:

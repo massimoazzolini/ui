@@ -6,11 +6,12 @@
     {% for link in site.pages %}
     {% if link.resource == true %}
       {% for cat in link.categories %}
-      {% if cat == category %}
-      {% assign current = nil %}
-      {% if page.url == link.url %}{% assign current = ' current' %}{% endif %}
-      <li class="menu--item"><a class="menu--link{{current}}" href="{{ base }}{{ link.url }}">{{ link.title }}</a></li>
-      {% endif %}
+        {% if cat == category %}
+          {% assign current = nil %}
+          {% if page.url == link.url %}
+            {% assign current = ' current' %}{% endif %}
+          <li class="menu--item"><a class="menu--link{{current}}" href="{{ base }}{{ link.url }}">{{ link.title }}</a></li>
+        {% endif %}
       {% endfor %}
     {% endif %}
     {% endfor %}
