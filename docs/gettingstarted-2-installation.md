@@ -14,16 +14,16 @@ Here are a few different ways to use the WFP UI within your project. Which one y
 
 Here are a few notes on what to consider when deciding which installation method to use.
 
-Download the WFP UI if:
+[Download](#download) the WFP UI if:
 
 *  you are not familiar with npm and Bower.
 
-Use the Bower way if:
+Use the [Bower](#bower) way if:
 
 *  you are familiar with Bower.
 *  you would like to leverage WFP UI Sass files.
 
-Use the CDN way if:
+Use the [CDN](#cdn) way if:
 *  you just want to use the WFP kit.
 
 
@@ -36,29 +36,29 @@ You can view the kit on [github](https://github.com/wfp/ui).
 2. Unpack it and look for the `dist` folder.
 3. It has this folder structure:
 
-  ```
-  dist
-  ├── assets
-  │   ├── favicons
-  │   ├── fonts
-  │   │   ├── aleo
-  │   │   └── lato
-  │   ├── icons
-  │   │   ├── thematic
-  │   │   └── ui
-  │   └── logos
-  │       ├── dark
-  │       │   ├── png
-  │       │   └── svg
-  │       └── light
-  │           ├── png
-  │           └── svg
-  ├── css
-  │   ├── bootstrap-theme.css
-  │   ├── wfpui+grid.css
-  │   └── wfpui.css
-  └── js
-  ```
+    ```
+    dist
+    ├── assets
+    │   ├── favicons
+    │   ├── fonts
+    │   │   ├── aleo
+    │   │   └── lato
+    │   ├── icons
+    │   │   ├── thematic
+    │   │   └── ui
+    │   └── logos
+    │       ├── dark
+    │       │   ├── png
+    │       │   └── svg
+    │       └── light
+    │           ├── png
+    │           └── svg
+    ├── css
+    │   ├── bootstrap-theme.css
+    │   ├── wfpui+grid.css
+    │   └── wfpui.css
+    └── js
+    ```
 
 4. Add those folders into a relevant place in your code base — likely a directory where you keep third-party libraries
 
@@ -66,27 +66,54 @@ To use the WFP UI on your project, you’ll need to include the CSS and JavaScri
 
 Refer to these files by adding the following `<link>` and `<script>` elements into your HTML pages.
 
+**CSS**
+
 Add this to your `<head>` element to include CSS:
 
 {% highlight html %}
-<link rel="stylesheet" href="bower_components/wfp-ui/dist/css/wfpui.css">
+<link rel="stylesheet" href="dist/css/wfpui.css">
 {% endhighlight %}
 
 or alternatively use this version that provides also the WFP grid system:
 
 {% highlight html %}
-<link rel="stylesheet" href="bower_components/wfp-ui/dist/css/wfpui+grid.css">
+<link rel="stylesheet" href="dist/css/wfpui+grid.css">
 {% endhighlight %}
+
+**JavaScript**
 
 Add this before the closing `</body>` tag to include JavaScript:
 
 {% highlight html %}
-<script src="bower_components/wfp-ui/js/responsive-nav.js"></script>
-<script src="bower_components/wfp-ui/js/subnav.js"></script>
-<script src="bower_components/wfp-ui/js/tools.js"></script>
+<script src="js/responsive-nav.js"></script>
+<script src="js/subnav.js"></script>
+<script src="js/tools.js"></script>
 {% endhighlight %}
 
 We offer a minified version. Use it in a production environment or to reduce the file size of your downloaded assets. The examples above recommend using the minified versions.
+
+**Icons**
+
+Insert this in the `<head>` tag:
+
+{% highlight html %}
+<!-- For modern browsers with SVG support -->
+<link rel="stylesheet" href="dist/assets/icons/ui/ui-icons.svg.css">
+<!-- For browsers without SVG support -->
+<link rel="stylesheet" href="dist/assets/icons/ui/ui-icons.png.css">
+<!-- IE8-9 Fallback -->
+<link rel="stylesheet" href="dist/assets/icons/ui/ui-icons.fallback.css">
+{% endhighlight %}
+
+
+**Fonts**
+
+Insert this in the `<head>` tag:
+
+{% highlight html %}
+<link rel="stylesheet" href="http://cdn.wfp.org/libraries/webfonts/lato/lato.css">
+<link rel="stylesheet" href="http://cdn.wfp.org/libraries/webfonts/aleo/aleo.css">
+{% endhighlight %}
 
 Now, you should be set to use the WFP UI.
 
@@ -119,7 +146,8 @@ bower_components
     └── scss
 ```
 
-#### SCSS
+###### SCSS
+
 You can add _WFP UI_ as a dependency to your main SCSS file:
 
 {% highlight sass %}
@@ -129,8 +157,11 @@ You can add _WFP UI_ as a dependency to your main SCSS file:
 @import "bower_components/wfp-ui/scss/wfpui+grid";
 {% endhighlight %}
 
-#### Use WFP UI directly
+###### Use WFP UI directly
+
 The resources in `dist` are the ones that you may want to directly include in your page.
+
+**CSS**
 
 Add this to your `<head>` element to include CSS:
 
@@ -144,6 +175,8 @@ or alternatively use this version that provides also the WFP grid system:
 <link rel="stylesheet" href="bower_components/wfp-ui/dist/css/wfpui+grid.css">
 {% endhighlight %}
 
+**Javascript**
+
 Add this before the closing `</body>` tag to include JavaScript:
 
 {% highlight html %}
@@ -154,9 +187,39 @@ Add this before the closing `</body>` tag to include JavaScript:
 
 
 
+
+**Icons**
+
+Insert this in the `<head>` tag:
+
+{% highlight html %}
+<!-- For modern browsers with SVG support -->
+<link rel="stylesheet" href="bower_components/wfp-ui/dist/assets/icons/ui/ui-icons.svg.css">
+<!-- For browsers without SVG support -->
+<link rel="stylesheet" href="bower_components/wfp-ui/dist/assets/icons/ui/ui-icons.png.css">
+<!-- IE8-9 Fallback -->
+<link rel="stylesheet" href="bower_components/wfp-ui/dist/assets/icons/ui/ui-icons.fallback.css">
+{% endhighlight %}
+
+
+**Fonts**
+
+Insert this in the `<head>` tag:
+
+{% highlight html %}
+<link rel="stylesheet" href="http://cdn.wfp.org/libraries/webfonts/lato/lato.css">
+<link rel="stylesheet" href="http://cdn.wfp.org/libraries/webfonts/aleo/aleo.css">
+{% endhighlight %}
+
+
+
+
+Now, you should be set to use the WFP UI.
+
 ### CDN
 Alternatively, you can load _WFP UI_ from our CDN, denoting a version number (i.e.: `v0.8.0`).
 
+**CSS**
 Add this to your `<head>` element to include CSS:
 
 {% highlight html %}
@@ -169,15 +232,37 @@ or alternatively use this version that provides also the WFP grid system:
 <link rel="stylesheet" href="http://cdn.wfp.org/libraries/wfpui/{{ site.version }}/css/wfpui+grid.css">
 {% endhighlight %}
 
-Add this to your `<head>` element to include the fonts:
+**Icons**
+
+Insert this in the `<head>` tag:
+
+{% highlight html %}
+<!-- For modern browsers with SVG support -->
+<link rel="stylesheet" href="http://cdn.wfp.org/libraries/wfpui/{{ site.version }}/assets/icons/ui/ui-icons.svg.css">
+<!-- For browsers without SVG support -->
+<link rel="stylesheet" href="http://cdn.wfp.org/libraries/wfpui/{{ site.version }}/assets/icons/ui/ui-icons.png.css">
+<!-- IE8-9 Fallback -->
+<link rel="stylesheet" href="http://cdn.wfp.org/libraries/wfpui/{{ site.version }}/assets/icons/ui/ui-icons.fallback.css">
+{% endhighlight %}
+
+
+**Fonts**
+
+Insert this in the `<head>` tag:
+
 {% highlight html %}
 <link rel="stylesheet" href="http://cdn.wfp.org/libraries/webfonts/lato/lato.css">
 <link rel="stylesheet" href="http://cdn.wfp.org/libraries/webfonts/aleo/aleo.css">
 {% endhighlight %}
+
+
+
+
+Now, you should be set to use the WFP UI.
 
 All the graphic resources (icons, favicons, logos, ...) are described in [Graphic Resources]({{ base }}/getting-started/graphic-resources)
 
 
 ### Need installation help?
 
-If you have questions or need help with setup, please open an issue here: https://github.com/wfp/ui/issues
+If you have questions or need help with setup, please open an issue here: [https://github.com/wfp/ui/issues](https://github.com/wfp/ui/issues)
